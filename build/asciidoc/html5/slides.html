@@ -216,7 +216,55 @@ July 26 - 28, 2017 · Minneapolis</p></div></section>
 <span class="line-numbers">16</span>pipelineConfig {
 <span class="line-numbers">17</span>    asi = <span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>asi.toUpperCase()<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>
 <span class="line-numbers">18</span>    projectName = <span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>projectName<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>
-<span class="line-numbers">19</span>    buildPipelineRows = <span class="integer">10</span></code></pre></div></div></section><section id="source-file-template"><h2>Source File Template</h2><div class="listingblock"><div class="content"><pre class="CodeRay"><code class="groovy language-groovy"><span class="line-numbers">1</span></code></pre></div></div></section><section id="test-file-template"><h2>Test File Template</h2><div class="listingblock"><div class="content"><pre class="CodeRay"><code class="groovy language-groovy"><span class="line-numbers">1</span></code></pre></div></div></section><section id="lazybones-groovy-define-custom-properties"><h2>Lazybones.groovy : Define Custom Properties</h2><div class="listingblock"><div class="title">Lazybones.groovy</div><div class="content"><pre class="CodeRay"><code class="groovy language-groovy"><span class="line-numbers"> 1</span><span class="keyword">import</span> <span class="include">org.apache.commons.io.FileUtils</span>
+<span class="line-numbers">19</span>    buildPipelineRows = <span class="integer">10</span></code></pre></div></div></section><section id="source-file-template"><h2>Source File Template</h2><div class="listingblock"><div class="title">HelloWorldControoler.groovy</div><div class="content"><pre class="CodeRay"><code class="groovy language-groovy"><span class="line-numbers"> 1</span><span class="keyword">package</span> <span class="error">$</span>{basePackage}.controller
+<span class="line-numbers"> 2</span>
+<span class="line-numbers"> 3</span><span class="keyword">import</span> <span class="include">groovy.util.logging.Slf4j</span>
+<span class="line-numbers"> 4</span><span class="keyword">import</span> <span class="include">io.swagger.annotations.Api</span>
+<span class="line-numbers"> 5</span><span class="keyword">import</span> <span class="include">net.bull.javamelody.MonitoredWithSpring</span>
+<span class="line-numbers"> 6</span><span class="keyword">import</span> <span class="include">org.springframework.beans.factory.annotation.Autowired</span>
+<span class="line-numbers"> 7</span><span class="keyword">import</span> <span class="include">org.springframework.http.MediaType</span>
+<span class="line-numbers"> 8</span><span class="keyword">import</span> <span class="include">org.springframework.web.bind.annotation.*</span>
+<span class="line-numbers"> 9</span>
+<span class="line-numbers">10</span><span class="annotation">@MonitoredWithSpring</span>
+<span class="line-numbers">11</span><span class="annotation">@RestController</span>
+<span class="line-numbers">12</span><span class="annotation">@RequestMapping</span>(<span class="string"><span class="delimiter">'</span><span class="content">/${moduleName}/v1.0</span><span class="delimiter">'</span></span>)
+<span class="line-numbers">13</span><span class="annotation">@Api</span>(value = <span class="string"><span class="delimiter">'</span><span class="content">$moduleName</span><span class="delimiter">'</span></span>, description = <span class="string"><span class="delimiter">'</span><span class="content">Hello World Resource</span><span class="delimiter">'</span></span>)
+<span class="line-numbers">14</span><span class="annotation">@Slf4j</span>
+<span class="line-numbers">15</span><span class="type">class</span> <span class="class">HelloWorldController</span> {
+<span class="line-numbers">16</span>
+<span class="line-numbers">17</span>    <span class="annotation">@RequestMapping</span>(value = <span class="string"><span class="delimiter">&quot;</span><span class="content">/</span><span class="delimiter">&quot;</span></span>, method = RequestMethod.GET)
+<span class="line-numbers">18</span>    <span class="directive">public</span> <span class="predefined-type">String</span> index() {
+<span class="line-numbers">19</span>        log.debug <span class="string"><span class="delimiter">'</span><span class="content">hello controller debug statement</span><span class="delimiter">'</span></span>
+<span class="line-numbers">20</span>        log.info <span class="string"><span class="delimiter">'</span><span class="content">hello controller info statement</span><span class="delimiter">'</span></span>
+<span class="line-numbers">21</span>        <span class="keyword">return</span> <span class="string"><span class="delimiter">'</span><span class="content">Greetings from Spring Boot!</span><span class="delimiter">'</span></span>
+<span class="line-numbers">22</span>    }
+<span class="line-numbers">23</span>}</code></pre></div></div></section><section id="test-file-template"><h2>Test File Template</h2><div class="listingblock"><div class="title">HelloWorldControllerSpec.groovy</div><div class="content"><pre class="CodeRay"><code class="groovy language-groovy"><span class="line-numbers"> 1</span><span class="keyword">package</span> <span class="error">$</span>{basePackage}.controller
+<span class="line-numbers"> 2</span><span class="keyword">import</span> <span class="error">$</span>{<span class="include">basePackage</span>}.<span class="include">Application</span>
+<span class="line-numbers"> 3</span>
+<span class="line-numbers"> 4</span><span class="annotation">@SpringBootTest</span>(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+<span class="line-numbers"> 5</span><span class="annotation">@Title</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">Test controller for response</span><span class="delimiter">&quot;</span></span>)
+<span class="line-numbers"> 6</span><span class="type">class</span> <span class="class">HelloWorldControllerSpec</span> <span class="directive">extends</span> Specification {
+<span class="line-numbers"> 7</span>    <span class="keyword">def</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">Test calling the example endpoint</span><span class="delimiter">&quot;</span></span>() {
+<span class="line-numbers"> 8</span>        <span class="key">given</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">new http headers for the /Example end point</span><span class="delimiter">&quot;</span></span>
+<span class="line-numbers"> 9</span>        HttpHeaders httpHeaders = <span class="keyword">new</span> HttpHeaders()
+<span class="line-numbers">10</span>        httpHeaders.add(<span class="string"><span class="delimiter">&quot;</span><span class="content">Content-Type</span><span class="delimiter">&quot;</span></span>, MediaType.APPLICATION_JSON.toString())
+<span class="line-numbers">11</span>        httpHeaders.add(<span class="string"><span class="delimiter">&quot;</span><span class="content">Accept</span><span class="delimiter">&quot;</span></span>, MediaType.APPLICATION_JSON.toString())
+<span class="line-numbers">12</span>        httpHeaders.add(<span class="string"><span class="delimiter">&quot;</span><span class="content">correlationId</span><span class="delimiter">&quot;</span></span>,<span class="predefined-type">UUID</span>.randomUUID().toString())
+<span class="line-numbers">13</span>        HttpEntity&lt;<span class="predefined-type">String</span>&gt; entity = <span class="keyword">new</span> HttpEntity&lt;<span class="predefined-type">String</span>&gt;(httpHeaders)
+<span class="line-numbers">14</span>
+<span class="line-numbers">15</span>        <span class="predefined-type">String</span> url = <span class="string"><span class="delimiter">&quot;</span><span class="content">http://localhost:</span><span class="char">\$</span><span class="content">{PORT}/</span><span class="inline"><span class="inline-delimiter">${</span>moduleName<span class="inline-delimiter">}</span></span><span class="content">/v1.0/</span><span class="delimiter">&quot;</span></span>
+<span class="line-numbers">16</span>
+<span class="line-numbers">17</span>        UriComponentsBuilder uriBuilder = UriComponentsBuilder
+<span class="line-numbers">18</span>                .fromHttpUrl(url)
+<span class="line-numbers">19</span>
+<span class="line-numbers">20</span>        <span class="key">when</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">the endpoint is called</span><span class="delimiter">&quot;</span></span>
+<span class="line-numbers">21</span>        println <span class="string"><span class="delimiter">&quot;</span><span class="content">calling </span><span class="char">\$</span><span class="content">url</span><span class="delimiter">&quot;</span></span>
+<span class="line-numbers">22</span>        <span class="predefined-type">String</span> response = restTemplate.getForObject(uriBuilder.build().encode().toUri(), <span class="predefined-type">String</span>.class)
+<span class="line-numbers">23</span>
+<span class="line-numbers">24</span>        <span class="key">then</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">the default response is returned from the hello world controller</span><span class="delimiter">&quot;</span></span>
+<span class="line-numbers">25</span>        response == <span class="string"><span class="delimiter">'</span><span class="content">Greetings from Spring Boot!</span><span class="delimiter">'</span></span>
+<span class="line-numbers">26</span>    }
+<span class="line-numbers">27</span>}</code></pre></div></div></section><section id="lazybones-groovy-define-custom-properties"><h2>Lazybones.groovy : Define Custom Properties</h2><div class="listingblock"><div class="title">Lazybones.groovy</div><div class="content"><pre class="CodeRay"><code class="groovy language-groovy"><span class="line-numbers"> 1</span><span class="keyword">import</span> <span class="include">org.apache.commons.io.FileUtils</span>
 <span class="line-numbers"> 2</span><span class="keyword">import</span> <span class="include">uk.co.cacoethes.util.NameType</span>
 <span class="line-numbers"> 3</span>
 <span class="line-numbers"> 4</span><span class="comment">// Ask questions and gather the project properties into a map</span>
