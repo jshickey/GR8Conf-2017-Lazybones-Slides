@@ -1,0 +1,373 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Using Lazybones For Enterprise Starter Projects</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"><style>/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+/*pre.CodeRay {background-color:#f7f7f8;}*/
+.CodeRay .line-numbers{border-right:1px solid #d8d8d8;padding:0 0.5em 0 .25em}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.5em;color:rgba(0,0,0,.3)}
+.CodeRay .line-numbers strong{color:rgba(0,0,0,.4)}
+table.CodeRay{border-collapse:separate;border-spacing:0;margin-bottom:0;border:0;background:none}
+table.CodeRay td{vertical-align: top;line-height:1.45}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.line-numbers>pre{padding:0;color:rgba(0,0,0,.3)}
+table.CodeRay td.code{padding:0 0 0 .5em}
+table.CodeRay td.code>pre{padding:0}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}</style><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section id="using-lazybones-for-enterprise-starter-projects"><h2>Using Lazybones For Enterprise Starter Projects</h2><div class="paragraph"><p>GR8Conf 2017<br>
+July 26 - 28, 2017 · Minneapolis</p></div></section>
+<section id="about-me"><h2>About Me</h2><div class="paragraph incremental text-left"><p>Scott Hickey</p></div>
+<div class="ulist"><ul><li><p>Principal Enterprise Architect, Mutual of Omaha</p></li><li><p>Mentor for teams adopting the CI Pipeline</p></li><li><p><a href="mailto:scott.hickey@mutualfomaha.com">scott.hickey@mutualfomaha.com</a></p></li><li><p>@jshickey</p></li></ul></div></section>
+<section id="agenda"><h2>Agenda</h2><div class="ulist"><ul><li><p>Motivation for Creating Custom Project Templates</p></li><li><p>What&#8217;s Lazybones?</p></li><li><p>Code Walk-Through of a Lazybones Project</p></li><li><p>Going Beyond Lazybones</p></li><li><p>Successes and Challenges</p></li></ul></div></section>
+<section><section id="motivation-for-creating-custom-project-templates"><h2>Motivation for Creating Custom Project Templates</h2><div class="paragraph"><p>"Hey, I&#8217;m creating a new Spring Boot Rest service. Do you have a project that I can copy to get started?"</p></div><div class="ulist"><ul><li><p>Moving towards an API/Services architecture</p></li><li><p>Everything must run on our CI Pipeline</p></li><li><p>Diverse level of expertise in our developer community</p></li></ul></div></section><section id="lazybones-in-action"><h2>Lazybones In Action</h2><div class="paragraph"><p>Out of the Box:</p></div>
+<div class="listingblock"><div class="content"><pre class="CodeRay"><code class="bash language-bash"><span class="line-numbers"> 1</span>&gt; lazybones create gradle-quickstart MyCoolApp
+<span class="line-numbers"> 2</span>Creating project from template gradle-quickstart (latest) in 'MyCoolApp'
+<span class="line-numbers"> 3</span>Define value for 'group' [org.example]: com.mutualofomaha
+<span class="line-numbers"> 4</span>Define value for 'version' [0.1.0-SNAPSHOT]:
+<span class="line-numbers"> 5</span>Define value for 'vendor' [my-cool-app]: Mutual of Omaha
+<span class="line-numbers"> 6</span>Define value for 'description' [my-cool-app]: a very cool application
+<span class="line-numbers"> 7</span>Define value for 'url' [https://github.com/req84082/my-cool-app]:
+<span class="line-numbers"> 8</span>Define value for 'scm' [https://github.com/req84082/my-cool-app.git]:
+<span class="line-numbers"> 9</span>Define value for 'issues' [https://github.com/req84082/my-cool-app/issues]:
+<span class="line-numbers">10</span>Define value for 'bintray repo' [maven]:
+<span class="line-numbers">11</span>Define value for 'bintray org' [req84082]:</code></pre></div></div></section><section id="lazybones-in-action-cont"><h2>Lazybones In Action (cont.)</h2><div class="listingblock"><div class="content"><pre class="CodeRay"><code class="bash language-bash"><span class="line-numbers"> 1</span>Gradle Project template
+<span class="line-numbers"> 2</span>-----------------------
+<span class="line-numbers"> 3</span>
+<span class="line-numbers"> 4</span>You've just created a basic Gradle project
+<span class="line-numbers"> 5</span>
+<span class="line-numbers"> 6</span>The project's structure is laid out as follows
+<span class="line-numbers"> 7</span>
+<span class="line-numbers"> 8</span>    &lt;proj&gt;
+<span class="line-numbers"> 9</span>      |
+<span class="line-numbers">10</span>      +- src
+<span class="line-numbers">11</span>          |
+<span class="line-numbers">12</span>          +- main
+<span class="line-numbers">13</span>              |
+<span class="line-numbers">14</span>              +- java
+<span class="line-numbers">15</span>              |
+<span class="line-numbers">16</span>                 // application sources
+<span class="line-numbers">17</span>              |
+<span class="line-numbers">18</span>              +- resources
+<span class="line-numbers">19</span>              |
+<span class="line-numbers">20</span>                 // application resources
+<span class="line-numbers">21</span>
+<span class="line-numbers">22</span>Execute the following command to compile and package the project
+<span class="line-numbers">23</span>
+<span class="line-numbers">24</span>    ./gradlew build
+<span class="line-numbers">25</span>
+<span class="line-numbers">26</span>Don't forget to update the pom configuration section found at
+<span class="line-numbers">27</span>`gradle/publishing.gradle`.
+<span class="line-numbers">28</span>
+<span class="line-numbers">29</span>
+<span class="line-numbers">30</span>Project created in MyCoolApp!</code></pre></div></div></section><section id="what-s-in-our-custom-starter-project"><h2>What&#8217;s in Our Custom Starter Project?</h2><div class="ulist"><ul><li><p>Java Melody</p></li><li><p>Swagger</p></li><li><p>MoO Gradle Distribution</p></li><li><p>MoO build.gradle pipeline DSL</p></li><li><p>Sample Spock Test for REST Endpoint</p></li><li><p>Spock Reports</p></li><li><p>logback conventions</p></li><li><p>gradle property group = com.mutualofomaha.asi</p></li></ul></div></section><section id="goal-easy-button-for-new-projects"><h2>Goal: Easy Button for New Projects</h2><div class="paragraph"><div class="title">Turnkey</div><p><span class="image"><img src="./images/Turnkey.png" alt="Turnkey"></span></p></div></section></section>
+<section><section id="lazybones-project-code-walk-thru"><h2>Lazybones Project Code Walk-thru</h2><div class="ulist"><ul><li><p>create new project using Lazybones</p></li></ul></div></section><section id="install-lazybones"><h2>Install Lazybones</h2><div class="paragraph"><p>install SDK Man from <a href="http://sdkman.io/" class="bare">http://sdkman.io/</a></p></div>
+<div class="listingblock"><div class="content"><pre class="CodeRay"><code class="bash language-bash"><span class="line-numbers"> 1</span>&gt;sdk install lazybones
+<span class="line-numbers"> 2</span>
+<span class="line-numbers"> 3</span>==== BROADCAST =================================================================
+<span class="line-numbers"> 4</span>* 27/07/17: Springboot 1.5.6.RELEASE released on SDKMAN! #springboot
+<span class="line-numbers"> 5</span>* 26/07/17: Springboot 2.0.0.M3 released on SDKMAN! #springboot
+<span class="line-numbers"> 6</span>* 26/07/17: Gradle 4.0.2 released on SDKMAN! #gradle
+<span class="line-numbers"> 7</span>================================================================================
+<span class="line-numbers"> 8</span>Downloading: lazybones 0.8.3
+<span class="line-numbers"> 9</span>In progress...
+<span class="line-numbers">10</span>######################################################################## 100.0%
+<span class="line-numbers">11</span>Installing: lazybones 0.8.3
+<span class="line-numbers">12</span>Done installing!
+<span class="line-numbers">13</span>Setting lazybones 0.8.3 as default.</code></pre></div></div></section><section id="default-lazybones-templates"><h2>Default Lazybones Templates</h2><div class="listingblock"><div class="content"><pre class="CodeRay"><code class="bash language-bash"><span class="line-numbers"> 1</span>     &gt; lazybones list
+<span class="line-numbers"> 2</span>     Available templates in pledbrook/lazybones-templates
+<span class="line-numbers"> 3</span>         aem-multimodule-project
+<span class="line-numbers"> 4</span>         afterburnerfx
+<span class="line-numbers"> 5</span>         afterburnergfx
+<span class="line-numbers"> 6</span>         angular-grails
+<span class="line-numbers"> 7</span>         asciidoctor-gradle
+<span class="line-numbers"> 8</span>         asciidoctor-revealjs
+<span class="line-numbers"> 9</span>         dropwizard
+<span class="line-numbers">10</span>         gaelyk
+<span class="line-numbers">11</span>         gradle-plugin
+<span class="line-numbers">12</span>         gradle-quickstart
+<span class="line-numbers">13</span>         groovy-app
+<span class="line-numbers">14</span>         groovy-lib
+<span class="line-numbers">15</span>         java-basic
+<span class="line-numbers">16</span>         lazybones-project
+<span class="line-numbers">17</span>         nebula-plugin
+<span class="line-numbers">18</span>         ratpack
+<span class="line-numbers">19</span>         ratpack-lite
+<span class="line-numbers">20</span>         spring-boot-actuator
+<span class="line-numbers">21</span>         test-handlebars</code></pre></div></div>
+<div class="paragraph"><p>All of these are hosted at <a href="https://bintray.com/pledbrook/lazybones-templates" class="bare">https://bintray.com/pledbrook/lazybones-templates</a></p></div></section><section id="create-a-new-lazybones-template-project"><h2>Create a New Lazybones Template Project</h2><div class="listingblock"><div class="content"><pre class="CodeRay"><code class="bash language-bash"><span class="line-numbers"> 1</span>&gt;lazybones create lazybones-project MutualDefaultSpringBootProject
+<span class="line-numbers"> 2</span>Creating project from template lazybones-project (latest) in 'MutualDefaultSpringBootProject'
+<span class="line-numbers"> 3</span>
+<span class="line-numbers"> 4</span>Lazybones template project
+<span class="line-numbers"> 5</span>--------------------------
+<span class="line-numbers"> 6</span>
+<span class="line-numbers"> 7</span>You have just created a simple project for managing your own Lazybones project
+<span class="line-numbers"> 8</span>templates. You get a build file (`build.gradle`) and a directory for putting
+<span class="line-numbers"> 9</span>your templates in (`templates`).
+<span class="line-numbers">10</span>
+<span class="line-numbers">11</span>To get started, simply create new directories under the `templates` directory
+<span class="line-numbers">12</span>and put the source of the different project templates into them. You can then
+<span class="line-numbers">13</span>package and install the templates locally with the command:
+<span class="line-numbers">14</span>
+<span class="line-numbers">15</span>    ./gradlew installAllTemplates
+<span class="line-numbers">16</span>
+<span class="line-numbers">17</span>You'll then be able to use Lazybones to create new projects from these templates.
+<span class="line-numbers">18</span>If you then want to distribute them, you will need to set up a Bintray account,
+<span class="line-numbers">19</span>populate the `repositoryUrl`, `repositoryUsername` and `repositoryApiKey` settings
+<span class="line-numbers">20</span>in `build.gradle`, add new Bintray packages in the repository via the Bintray
+<span class="line-numbers">21</span>UI, and finally publish the templates with
+<span class="line-numbers">22</span>
+<span class="line-numbers">23</span>    ./gradlew publishAllTemplates
+<span class="line-numbers">24</span>
+<span class="line-numbers">25</span>You can find out more about creating templates on [the GitHub wiki][1].
+<span class="line-numbers">26</span>
+<span class="line-numbers">27</span>[1]: https://github.com/pledbrook/lazybones/wiki/Template-developers-guide
+<span class="line-numbers">28</span>
+<span class="line-numbers">29</span>
+<span class="line-numbers">30</span>Project created in MutualDefaultSpringBootProject!</code></pre></div></div></section><section id="copy-your-sample-project-into-the-templates-directory"><h2>Copy Your Sample Project into the Templates Directory</h2><div class="paragraph"><div class="title">Lazybones Template Project Structure</div><p><span class="image"><img src="./images/TemplateProjectStructure.png" alt="TemplateProjectStructure"></span></p></div></section><section id="identify-places-for-customization"><h2>Identify Places for Customization</h2><div class="listingblock"><div class="title">settings.gradle</div><div class="content"><pre class="CodeRay"><code class="groovy language-groovy"><span class="line-numbers">1</span>rootProject.name = <span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>moduleName<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span></code></pre></div></div>
+<div class="listingblock"><div class="title">gradle.properties</div><div class="content"><pre class="CodeRay"><code class="groovy language-groovy"><span class="line-numbers">1</span>version=<span class="float">1.0</span>-SNAPSHOT
+<span class="line-numbers">2</span>description = <span class="error">$</span>{description}
+<span class="line-numbers">3</span>group = <span class="error">$</span>{group}</code></pre></div></div></section><section id="escaping-customization"><h2>Escaping Customization</h2><div class="listingblock"><div class="title">build.gradle</div><div class="content"><pre class="CodeRay"><code class="groovy language-groovy"><span class="line-numbers"> 1</span>buildscript {
+<span class="line-numbers"> 2</span>    ext {
+<span class="line-numbers"> 3</span>        springBootVersion = <span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>springBootVersion<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>
+<span class="line-numbers"> 4</span>    }
+<span class="line-numbers"> 5</span>    dependencies {
+<span class="line-numbers"> 6</span>        classpath(<span class="string"><span class="delimiter">&quot;</span><span class="content">org.springframework.boot:spring-boot-gradle-plugin:</span><span class="char">\$</span><span class="content">{springBootVersion}</span><span class="delimiter">&quot;</span></span>)
+<span class="line-numbers"> 7</span>    }
+<span class="line-numbers"> 8</span>}
+<span class="line-numbers"> 9</span>
+<span class="line-numbers">10</span>repositories {
+<span class="line-numbers">11</span>    maven {
+<span class="line-numbers">12</span>        url(<span class="string"><span class="delimiter">&quot;</span><span class="char">\$</span><span class="content">artifactoryUrl/libs-release</span><span class="delimiter">&quot;</span></span>)
+<span class="line-numbers">13</span>    }
+<span class="line-numbers">14</span>}
+<span class="line-numbers">15</span>
+<span class="line-numbers">16</span>pipelineConfig {
+<span class="line-numbers">17</span>    asi = <span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>asi.toUpperCase()<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>
+<span class="line-numbers">18</span>    projectName = <span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>projectName<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>
+<span class="line-numbers">19</span>    buildPipelineRows = <span class="integer">10</span></code></pre></div></div></section><section id="source-file-template"><h2>Source File Template</h2><div class="listingblock"><div class="content"><pre class="CodeRay"><code class="groovy language-groovy"><span class="line-numbers">1</span></code></pre></div></div></section><section id="test-file-template"><h2>Test File Template</h2><div class="listingblock"><div class="content"><pre class="CodeRay"><code class="groovy language-groovy"><span class="line-numbers">1</span></code></pre></div></div></section><section id="lazybones-groovy-define-custom-properties"><h2>Lazybones.groovy : Define Custom Properties</h2><div class="listingblock"><div class="title">Lazybones.groovy</div><div class="content"><pre class="CodeRay"><code class="groovy language-groovy"><span class="line-numbers"> 1</span><span class="keyword">import</span> <span class="include">org.apache.commons.io.FileUtils</span>
+<span class="line-numbers"> 2</span><span class="keyword">import</span> <span class="include">uk.co.cacoethes.util.NameType</span>
+<span class="line-numbers"> 3</span>
+<span class="line-numbers"> 4</span><span class="comment">// Ask questions and gather the project properties into a map</span>
+<span class="line-numbers"> 5</span><span class="keyword">def</span> props = [:]
+<span class="line-numbers"> 6</span>
+<span class="line-numbers"> 7</span><span class="keyword">def</span> defaultGradleDistro = <span class="string"><span class="delimiter">'</span><span class="content">https://ivyrepo.mutualofomaha.com/artifactory/tools-release-local/com/mutualofomaha/mutual-gradle/3.4.1-r0/mutual-gradle-3.4.1-r0.zip</span><span class="delimiter">'</span></span> <span class="comment">//'3.1-r0'</span>
+<span class="line-numbers"> 8</span><span class="keyword">def</span> defaultSpringBootVersion = <span class="string"><span class="delimiter">'</span><span class="content">1.5.2.RELEASE</span><span class="delimiter">'</span></span>
+<span class="line-numbers"> 9</span>
+<span class="line-numbers">10</span><span class="comment">// Required Properties by Turnkey or via the Command Line</span>
+<span class="line-numbers">11</span>props.asi = ask(<span class="string"><span class="delimiter">&quot;</span><span class="content">ASI [esc]: </span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">esc</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">asi</span><span class="delimiter">&quot;</span></span>)
+<span class="line-numbers">12</span>props.projectName = ask(<span class="string"><span class="delimiter">&quot;</span><span class="content">Project Name [</span><span class="inline"><span class="inline-delimiter">${</span>projectDir.name<span class="inline-delimiter">}</span></span><span class="content">]: </span><span class="delimiter">&quot;</span></span>, projectDir.name, <span class="string"><span class="delimiter">&quot;</span><span class="content">projectName</span><span class="delimiter">&quot;</span></span>)
+<span class="line-numbers">13</span>props.gradleDistribution = ask (<span class="string"><span class="delimiter">&quot;</span><span class="content">Gradle Distribution [</span><span class="inline"><span class="inline-delimiter">$</span>defaultGradleDistro</span><span class="content">]</span><span class="delimiter">&quot;</span></span>, defaultGradleDistro, <span class="string"><span class="delimiter">&quot;</span><span class="content">gradleDistribution</span><span class="delimiter">&quot;</span></span>)
+<span class="line-numbers">14</span>props.description = ask(<span class="string"><span class="delimiter">&quot;</span><span class="content">Project Description</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">put your project description here</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">description</span><span class="delimiter">&quot;</span></span>)
+<span class="line-numbers">15</span>
+<span class="line-numbers">16</span><span class="comment">// Computed Properties</span>
+<span class="line-numbers">17</span>props.moduleName = transformText(props.projectName, <span class="key">from</span>: NameType.NATURAL, <span class="key">to</span>: NameType.CAMEL_CASE)
+<span class="line-numbers">18</span>props.group = <span class="string"><span class="delimiter">&quot;</span><span class="content">com.mutualofomaha.</span><span class="inline"><span class="inline-delimiter">${</span>props.asi<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>
+<span class="line-numbers">19</span>props.basePackage = <span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>props.group<span class="inline-delimiter">}</span></span><span class="content">.</span><span class="inline"><span class="inline-delimiter">${</span>props.moduleName<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>.toLowerCase()
+<span class="line-numbers">20</span>props.springBootVersion = defaultSpringBootVersion
+<span class="line-numbers">21</span>props.version = <span class="string"><span class="delimiter">'</span><span class="content">1.0-SNAPSHOT</span><span class="delimiter">'</span></span>
+<span class="line-numbers">22</span>props.user = <span class="string"><span class="delimiter">'</span><span class="content">TurnkeyUser</span><span class="delimiter">'</span></span></code></pre></div></div></section><section id="lazybones-groovy-resolve-variables-in-templates"><h2>Lazybones.groovy : Resolve Variables in Templates</h2><div class="listingblock"><div class="title">Lazybones.groovy</div><div class="content"><pre class="CodeRay"><code class="groovy language-groovy"><span class="line-numbers"> 1</span><span class="comment">// let template variables be resolved using Groovy's SimpleTemplateEngine</span>
+<span class="line-numbers"> 2</span>[<span class="string"><span class="delimiter">'</span><span class="content">build.gradle</span><span class="delimiter">'</span></span>,
+<span class="line-numbers"> 3</span> <span class="string"><span class="delimiter">'</span><span class="content">gradle.properties</span><span class="delimiter">'</span></span>,
+<span class="line-numbers"> 4</span> <span class="string"><span class="delimiter">'</span><span class="content">createSvnRepo.groovy</span><span class="delimiter">'</span></span>,
+<span class="line-numbers"> 5</span> <span class="string"><span class="delimiter">'</span><span class="content">settings.gradle</span><span class="delimiter">'</span></span>,
+<span class="line-numbers"> 6</span> <span class="string"><span class="delimiter">'</span><span class="content">gradle/wrapper/gradle-wrapper.properties</span><span class="delimiter">'</span></span>,
+<span class="line-numbers"> 7</span> <span class="string"><span class="delimiter">'</span><span class="content">src/main/resources/application.yml</span><span class="delimiter">'</span></span>,
+<span class="line-numbers"> 8</span> <span class="string"><span class="delimiter">'</span><span class="content">src/main/resources/logback.groovy</span><span class="delimiter">'</span></span>,
+<span class="line-numbers"> 9</span> <span class="string"><span class="delimiter">'</span><span class="content">src/main/groovy/**/*.groovy</span><span class="delimiter">'</span></span>,
+<span class="line-numbers">10</span> <span class="string"><span class="delimiter">'</span><span class="content">src/test/groovy/**/*.groovy</span><span class="delimiter">'</span></span>].each {
+<span class="line-numbers">11</span>    processTemplates(<span class="local-variable">it</span>, props)
+<span class="line-numbers">12</span>}</code></pre></div></div></section><section id="lazybones-groovy-move-files-into-correct-directories"><h2>Lazybones.groovy : Move Files into Correct Directories</h2><div class="listingblock"><div class="title">Lazybones.groovy</div><div class="content"><pre class="CodeRay"><code class="groovy language-groovy"><span class="line-numbers"> 1</span>
+<span class="line-numbers"> 2</span><span class="keyword">def</span> renameFile = { <span class="predefined-type">File</span> from, <span class="predefined-type">String</span> path -&gt;
+<span class="line-numbers"> 3</span>    <span class="keyword">if</span> (from.file) {
+<span class="line-numbers"> 4</span>        <span class="predefined-type">File</span> to = <span class="keyword">new</span> <span class="predefined-type">File</span>(path)
+<span class="line-numbers"> 5</span>        to.parentFile.mkdirs()
+<span class="line-numbers"> 6</span>        FileUtils.moveFile(from, to)
+<span class="line-numbers"> 7</span>    } <span class="keyword">else</span> {
+<span class="line-numbers"> 8</span>        <span class="predefined-type">File</span> to = <span class="keyword">new</span> <span class="predefined-type">File</span>(path)
+<span class="line-numbers"> 9</span>        to.parentFile.mkdirs()
+<span class="line-numbers">10</span>        FileUtils.moveDirectory(from, to)
+<span class="line-numbers">11</span>    }
+<span class="line-numbers">12</span>}
+<span class="line-numbers">13</span>
+<span class="line-numbers">14</span><span class="comment">// define directories inside the source sets that correspond to the the java/groovy package names</span>
+<span class="line-numbers">15</span><span class="comment">// created from user inputs.</span>
+<span class="line-numbers">16</span><span class="comment">// Assuming the default package is com.mutualofomaha.esc:</span>
+<span class="line-numbers">17</span><span class="comment">// create com/mutualofomaha/esc under src/main/groovy and src/test/groovy</span>
+<span class="line-numbers">18</span>
+<span class="line-numbers">19</span><span class="predefined-type">String</span> packagePath = props.basePackage.replace(<span class="string"><span class="delimiter">'</span><span class="content">.</span><span class="delimiter">'</span></span> as <span class="type">char</span>, <span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span> <span class="keyword">as</span> <span class="type">char</span>)
+<span class="line-numbers">20</span>
+<span class="line-numbers">21</span><span class="comment">// create the source set directories for the project</span>
+<span class="line-numbers">22</span>[<span class="string"><span class="delimiter">'</span><span class="content">src/main/groovy</span><span class="delimiter">'</span></span>,
+<span class="line-numbers">23</span> <span class="string"><span class="delimiter">'</span><span class="content">src/test/groovy</span><span class="delimiter">'</span></span>].each { <span class="predefined-type">String</span> sourceSet -&gt;
+<span class="line-numbers">24</span>    <span class="predefined-type">File</span> targetDir = <span class="keyword">new</span> <span class="predefined-type">File</span>(projectDir, sourceSet + <span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span> + packagePath )
+<span class="line-numbers">25</span>    <span class="keyword">new</span> <span class="predefined-type">File</span>(projectDir, sourceSet).eachFile { <span class="predefined-type">File</span> sourceFile -&gt;
+<span class="line-numbers">26</span>        renameFile(sourceFile, targetDir.absolutePath + <span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span> +  sourceFile.name)
+<span class="line-numbers">27</span>    }
+<span class="line-numbers">28</span>}</code></pre></div></div></section></section>
+<section id="turnkey-code-to-create-project"><h2>Turnkey Code To Create Project</h2><div class="listingblock"><div class="title">ProjectTemplateServiceInterface.groovy</div><div class="content"><pre class="CodeRay"><code class="groovy language-groovy"><span class="line-numbers"> 1</span>     <span class="type">void</span> applyTemplate(<span class="predefined-type">File</span> projectFolder, <span class="predefined-type">URI</span> template, <span class="predefined-type">Map</span> templateParams) {
+<span class="line-numbers"> 2</span>
+<span class="line-numbers"> 3</span>        <span class="comment">// Generate Lazybones arguments</span>
+<span class="line-numbers"> 4</span>        <span class="keyword">def</span> args = [
+<span class="line-numbers"> 5</span>            <span class="string"><span class="delimiter">&quot;</span><span class="content">create</span><span class="delimiter">&quot;</span></span>,
+<span class="line-numbers"> 6</span>            template.toString(),
+<span class="line-numbers"> 7</span>            projectFolder.getAbsolutePath()
+<span class="line-numbers"> 8</span>
+<span class="line-numbers"> 9</span>        <span class="keyword">try</span> {
+<span class="line-numbers">10</span>            LazybonesMain.main(args <span class="keyword">as</span> <span class="predefined-type">String</span><span class="type">[]</span>)
+<span class="line-numbers">11</span>        } <span class="keyword">catch</span>(LazybonesExitException e) {
+<span class="line-numbers">12</span>            <span class="keyword">if</span> (e.getExitStatus() != <span class="integer">0</span>) {
+<span class="line-numbers">13</span>                <span class="keyword">throw</span> <span class="keyword">new</span> ServiceException(<span class="string"><span class="delimiter">&quot;</span><span class="content">Non-zero exit status from Lazybones: </span><span class="inline"><span class="inline-delimiter">${</span>e.getExitStatus()<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>)
+<span class="line-numbers">14</span>            }
+<span class="line-numbers">15</span>        }
+<span class="line-numbers">16</span>    }</code></pre></div></div></section>
+<section id="successes-and-challenges"><h2>Successes and Challenges</h2><div class="ulist"><ul><li><p>keeping templates up to date</p></li><li><p>less is better than more</p></li><li><p>teams can create their own templates</p></li><li><p>extremely positive response from teams new to the technology</p></li><li><p>teams can create a new project and it builds on the CI server in minutes</p></li></ul></div></section>
+<section id="questions"><h2>Questions</h2></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: true,
+  // Push each slide change to the browser history
+  history: true,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'solarized',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'linear',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: '99%',
+  height: 700,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>
